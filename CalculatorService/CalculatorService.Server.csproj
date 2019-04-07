@@ -164,7 +164,10 @@
     <Compile Include="Common\CommonUtils.cs" />
     <Compile Include="Common\HeaderValueProvider.cs" />
     <Compile Include="Controllers\Calculator\AddController.cs" />
+    <Compile Include="Controllers\Calculator\DivController.cs" />
     <Compile Include="Controllers\Calculator\JournalController.cs" />
+    <Compile Include="Controllers\Calculator\MultController.cs" />
+    <Compile Include="Controllers\Calculator\SQRTController.cs" />
     <Compile Include="Controllers\Calculator\SubController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -227,7 +230,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\BaseCalc\" />
+    <Folder Include="Views\Div\" />
     <Folder Include="Views\Journal\" />
+    <Folder Include="Views\Mult\" />
+    <Folder Include="Views\SQRT\" />
     <Folder Include="Views\Sub\" />
   </ItemGroup>
   <ItemGroup>

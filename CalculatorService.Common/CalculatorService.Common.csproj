@@ -42,8 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\AddModels.cs" />
+    <Compile Include="Entities\DivModels.cs" />
     <Compile Include="Entities\IOperation.cs" />
     <Compile Include="Entities\JournalModels.cs" />
+    <Compile Include="Entities\MultModels.cs" />
+    <Compile Include="Entities\SQRTModels.cs" />
     <Compile Include="Entities\SubModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
