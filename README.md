@@ -1,6 +1,12 @@
 # CalculatorService
 HTTP/REST based 'Calculator Service’
 
+## Configuration
+
+### CalculatorService.Server App Config
+Please make sure everything is configured before run the application
+`JournalPath` Full Path to the Journal Database file. You could find it at CalculatorService.Data folder
+
 ## How to build
 In order to build this application, just right click and select 'Build' in CalculatorService.Server on Visual Studio. NuGet will automatically download all dependences required.
 
