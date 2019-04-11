@@ -14,15 +14,14 @@ namespace CalculatorService.Client
     {
 
 
-        public static string Add(AddModel oAdd)
+        public static string Add(AddModel oAdd, string sTrackingId)
         {
             var client = new RestClient("http://localhost:50236/calculator/add");
             var request = new RestRequest(Method.POST);
-            //request.AddHeader("Postman-Token", "8fefdbd3-9cd6-4453-8a66-6664bedc1175");
+            setTracking(sTrackingId, request);
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("undefined", JsonConvert.SerializeObject(oAdd), ParameterType.RequestBody);
-            //request.AddJsonBody(oAdd);
 
             IRestResponse response = client.Execute(request);
 
@@ -81,6 +80,14 @@ namespace CalculatorService.Client
             IRestResponse response = client.Execute(request);
 
             return response.Content;
+        }
+
+        private static void setTracking(string sTrackingID, RestRequest request)
+        {
+            if(!string.IsNullOrEmpty(sTrackingID))
+            {
+                request.AddHeader("X-Evi-Tracking-Id", sTrackingID);
+            }
         }
     }
 }

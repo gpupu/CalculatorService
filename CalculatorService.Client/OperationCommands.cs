@@ -43,6 +43,10 @@ namespace CalculatorService.Client
         [PositionalArgument(ArgumentFlags.Required, Position = 0, Description = "Set of values to Add separated by comma ','")]
         public int[] Addins { get; set; }
 
+        [PositionalArgument(ArgumentFlags.Optional, Position = 1, Description = "Tracking ID")]
+        public string TrackingID { get; set; }
+
+
         public override Task<CommandResult> ExecuteAsync(CancellationToken cancel)
         {
             string sResult;
@@ -51,7 +55,7 @@ namespace CalculatorService.Client
                 Console.WriteLine("Calculating...");
 
                 AddModel oAdd = new AddModel(Addins);
-                sResult = Operations.Add(oAdd);
+                sResult = Operations.Add(oAdd, TrackingID);
 
                 Console.WriteLine(sResult);
 
