@@ -42,9 +42,6 @@ namespace CalculatorService.Client
 
         private static void PrintMenu()
         {
-
-            // TODO
-
             foreach (var item in Enum.GetValues(typeof(CalcCommandsType)))
             {
                 var type = typeof(CalcCommandsType);
