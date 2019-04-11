@@ -11,6 +11,14 @@ namespace CalculatorService.Common.Entities
         public int Dividend { get; set; }
         public int Divisor { get; set; }
 
+        public DivModel() { }
+
+        public DivModel(int Dividend, int Divisor)
+        {
+            this.Dividend = Dividend;
+            this.Divisor = Divisor;
+        }
+
         public string GetCalculation()
         {
             string sCalc = string.Empty;

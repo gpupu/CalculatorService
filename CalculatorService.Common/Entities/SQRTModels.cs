@@ -10,6 +10,13 @@ namespace CalculatorService.Common.Entities
     {
         public int Number { get; set; }
 
+        public SQRTModel() { }
+
+        public SQRTModel(int Number)
+        {
+            this.Number = Number;
+        }
+
         public string GetCalculation()
         {
             string sCalc = string.Empty;

@@ -10,6 +10,16 @@ namespace CalculatorService.Common.Entities
     {
         public int[] Factors { get; set; }
 
+        public MultModel() { }
+
+        public MultModel(int[] mult)
+        {
+            //string[] aAddens = addens.Split(',');
+
+            //Addens = aAddens.Select(a => Convert.ToInt32(a)).ToArray();
+            this.Factors = mult;
+        }
+
         public string GetCalculation()
         {
             string sCalc = string.Empty;

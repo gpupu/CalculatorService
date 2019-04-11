@@ -1,6 +1,8 @@
+using NClap.Metadata;
 using NClap.Repl;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,6 +32,7 @@ namespace CalculatorService.Client
         private static void RunInteractiveShell()
         {
             Console.WriteLine("Entering loop...");
+            PrintMenu();
 
             var loop = new Loop(typeof(CalcCommandsType));
             loop.Execute();
@@ -39,7 +42,17 @@ namespace CalculatorService.Client
 
         private static void PrintMenu()
         {
+
             // TODO
+
+            foreach (var item in Enum.GetValues(typeof(CalcCommandsType)))
+            {
+                var type = typeof(CalcCommandsType);
+                var memInfo = type.GetMember(item.ToString());
+                var attributes = memInfo[0].GetCustomAttributes(typeof(DescriptionAttribute), false);
+                var description = ((DescriptionAttribute)attributes[0]).Description;
+                Console.WriteLine(string.Format("{0}.- {1} {2}",(int)item, item, description));
+            }
         }
     }
 }

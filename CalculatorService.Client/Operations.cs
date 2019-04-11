@@ -42,5 +42,45 @@ namespace CalculatorService.Client
             return response.Content;
         }
 
+        public static string Mult(MultModel oMult)
+        {
+            var client = new RestClient("http://localhost:50236/calculator/mult");
+            var request = new RestRequest(Method.POST);
+            //request.AddHeader("Postman-Token", "8fefdbd3-9cd6-4453-8a66-6664bedc1175");
+            request.AddHeader("cache-control", "no-cache");
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("undefined", JsonConvert.SerializeObject(oMult), ParameterType.RequestBody);
+            //request.AddJsonBody(oAdd);
+
+            IRestResponse response = client.Execute(request);
+
+            return response.Content;
+        }
+
+        public static string Div(DivModel oDiv)
+        {
+            var client = new RestClient("http://localhost:50236/calculator/div");
+            var request = new RestRequest(Method.POST);
+            //request.AddHeader("Postman-Token", "68a46cf7-f6d6-4013-96f8-31c842ab264e");
+            request.AddHeader("cache-control", "no-cache");
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("undefined", JsonConvert.SerializeObject(oDiv), ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+
+            return response.Content;
+        }
+
+        public static string SQRT(SQRTModel oSQRT)
+        {
+            var client = new RestClient("http://localhost:50236/calculator/sqrt");
+            var request = new RestRequest(Method.POST);
+            //request.AddHeader("Postman-Token", "68a46cf7-f6d6-4013-96f8-31c842ab264e");
+            request.AddHeader("cache-control", "no-cache");
+            request.AddHeader("Content-Type", "application/json");
+            request.AddParameter("undefined", JsonConvert.SerializeObject(oSQRT), ParameterType.RequestBody);
+            IRestResponse response = client.Execute(request);
+
+            return response.Content;
+        }
     }
 }
