@@ -10,6 +10,14 @@ namespace CalculatorService.Common.Entities
         public int Minuend { get; set; }
         public int Subtrahend { get; set; }
 
+        public SubModel() { }
+
+        public SubModel(int Minuend, int Subtrahend)
+        {
+            this.Minuend = Minuend;
+            this.Subtrahend = Subtrahend;
+        }
+
         public string GetCalculation()
         {
             string sCalc = string.Empty;

@@ -9,6 +9,15 @@ namespace CalculatorService.Common.Entities
     {
         public int[] Addens { get; set; }
 
+        public AddModel() { }
+
+        public AddModel(string addens)
+        {
+            string[] aAddens = addens.Split(',');
+
+            Addens = aAddens.Select(a => Convert.ToInt32(a)).ToArray();
+        }
+
         public string GetCalculation()
         {
             string sCalc = string.Empty;
