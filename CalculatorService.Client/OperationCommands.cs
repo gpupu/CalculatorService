@@ -33,6 +33,10 @@ namespace CalculatorService.Client
         [Description("Expects a value to calculate its square root")]
         Sqrt = 5,
 
+        [Command(typeof(JournalCommand), LongName = "Journal", Description = "Journal Query")]
+        [Description("Expects Journal key to retrieve their saved records")]
+        Journal = 6,
+        
         [Command(typeof(ExitCommand), LongName = "Exit", Description = "Exits Calculator CLI")]
         [Description("Exit this application")]
         Exit
@@ -183,4 +187,5 @@ namespace CalculatorService.Client
         }
     }
 
+    
 }

@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Journal.cs" />
     <Compile Include="OperationCommands.cs" />
     <Compile Include="Operations.cs" />
     <Compile Include="Program.cs" />
