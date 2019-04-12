@@ -7,16 +7,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace CalculatorService.Client
 {
     public static class Operations
     {
-
-
-        public static string Add(AddModel oAdd, string sTrackingId)
+  public static string Add(AddModel oAdd, string sTrackingId)
         {
-            var client = new RestClient("http://localhost:50236/calculator/add");
+            var client = new RestClient(string.Concat(ConfigurationManager.AppSettings["ServiceURL"],"/calculator/add"));
             var request = new RestRequest(Method.POST);
             setTracking(sTrackingId, request);
             request.AddHeader("cache-control", "no-cache");
@@ -30,7 +29,7 @@ namespace CalculatorService.Client
 
         public static string Sub(SubModel oSub, string sTrackingId)
         {
-            var client = new RestClient("http://localhost:50236/calculator/sub");
+            var client = new RestClient(string.Concat(ConfigurationManager.AppSettings["ServiceURL"], "/calculator/sub"));
             var request = new RestRequest(Method.POST);
             setTracking(sTrackingId, request);
             request.AddHeader("cache-control", "no-cache");
@@ -43,7 +42,7 @@ namespace CalculatorService.Client
 
         public static string Mult(MultModel oMult, string sTrackingId)
         {
-            var client = new RestClient("http://localhost:50236/calculator/mult");
+            var client = new RestClient(string.Concat(ConfigurationManager.AppSettings["ServiceURL"], "/calculator/mult"));
             var request = new RestRequest(Method.POST);
             setTracking(sTrackingId, request);
             request.AddHeader("cache-control", "no-cache");
@@ -57,7 +56,7 @@ namespace CalculatorService.Client
 
         public static string Div(DivModel oDiv, string sTrackingId)
         {
-            var client = new RestClient("http://localhost:50236/calculator/div");
+            var client = new RestClient(string.Concat(ConfigurationManager.AppSettings["ServiceURL"], "/calculator/div"));
             var request = new RestRequest(Method.POST);
             setTracking(sTrackingId, request);
             request.AddHeader("cache-control", "no-cache");
@@ -70,7 +69,7 @@ namespace CalculatorService.Client
 
         public static string SQRT(SQRTModel oSQRT, string sTrackingId)
         {
-            var client = new RestClient("http://localhost:50236/calculator/sqrt");
+            var client = new RestClient(string.Concat(ConfigurationManager.AppSettings["ServiceURL"], "/calculator/sqrt"));
             var request = new RestRequest(Method.POST);
             setTracking(sTrackingId, request);
             request.AddHeader("cache-control", "no-cache");
