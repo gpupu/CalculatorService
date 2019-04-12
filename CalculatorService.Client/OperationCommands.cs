@@ -80,6 +80,8 @@ namespace CalculatorService.Client
 
         [PositionalArgument(ArgumentFlags.Required, Position = 1, Description = "Subtrahend")]
         public int iSubtrahend { get; set; }
+        [PositionalArgument(ArgumentFlags.Optional, Position = 2, Description = "Tracking ID")]
+        public string TrackingID { get; set; }
 
         public override Task<CommandResult> ExecuteAsync(CancellationToken cancel)
         {
@@ -89,7 +91,7 @@ namespace CalculatorService.Client
                 Console.WriteLine("Calculating...");
 
                 SubModel oSubModel = new SubModel(iMinuend, -1*iSubtrahend);
-                sResult = Operations.Sub(oSubModel);
+                sResult = Operations.Sub(oSubModel, TrackingID);
 
                 Console.WriteLine(sResult);
 
@@ -107,6 +109,8 @@ namespace CalculatorService.Client
     {
         [PositionalArgument(ArgumentFlags.Required, Position = 0, Description = "Set of values to Multiply separated by comma ','")]
         public int[] Factors { get; set; }
+        [PositionalArgument(ArgumentFlags.Optional, Position = 1, Description = "Tracking ID")]
+        public string TrackingID { get; set; }
 
         public override Task<CommandResult> ExecuteAsync(CancellationToken cancel)
         {
@@ -116,7 +120,7 @@ namespace CalculatorService.Client
                 Console.WriteLine("Calculating...");
 
                 MultModel oMult = new MultModel(Factors);
-                sResult = Operations.Mult(oMult);
+                sResult = Operations.Mult(oMult, TrackingID);
 
                 Console.WriteLine(sResult);
 
@@ -137,6 +141,8 @@ namespace CalculatorService.Client
 
         [PositionalArgument(ArgumentFlags.Required, Position = 1, Description = "Divisor")]
         public int iDivisor { get; set; }
+        [PositionalArgument(ArgumentFlags.Optional, Position = 1, Description = "Tracking ID")]
+        public string TrackingID { get; set; }
 
         public override Task<CommandResult> ExecuteAsync(CancellationToken cancel)
         {
@@ -146,7 +152,7 @@ namespace CalculatorService.Client
                 Console.WriteLine("Calculating...");
 
                 DivModel oDivModel = new DivModel(iDividend, iDivisor);
-                sResult = Operations.Div(oDivModel);
+                sResult = Operations.Div(oDivModel, TrackingID);
 
                 Console.WriteLine(sResult);
 
@@ -164,6 +170,8 @@ namespace CalculatorService.Client
     {
         [PositionalArgument(ArgumentFlags.Required, Position = 0, Description = "Number to be calculated its SQRT")]
         public int Number { get; set; }
+        [PositionalArgument(ArgumentFlags.Optional, Position = 1, Description = "Tracking ID")]
+        public string TrackingID { get; set; }
 
         public override Task<CommandResult> ExecuteAsync(CancellationToken cancel)
         {
@@ -173,7 +181,7 @@ namespace CalculatorService.Client
                 Console.WriteLine("Calculating...");
 
                 SQRTModel oSquare = new SQRTModel(Number);
-                sResult = Operations.SQRT(oSquare);
+                sResult = Operations.SQRT(oSquare, TrackingID);
 
                 Console.WriteLine(sResult);
 

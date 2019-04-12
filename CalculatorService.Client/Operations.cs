@@ -28,11 +28,11 @@ namespace CalculatorService.Client
             return response.Content;
         }
 
-        public static string Sub(SubModel oSub)
+        public static string Sub(SubModel oSub, string sTrackingId)
         {
             var client = new RestClient("http://localhost:50236/calculator/sub");
             var request = new RestRequest(Method.POST);
-            //request.AddHeader("Postman-Token", "68a46cf7-f6d6-4013-96f8-31c842ab264e");
+            setTracking(sTrackingId, request);
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("undefined", JsonConvert.SerializeObject(oSub), ParameterType.RequestBody);
@@ -41,26 +41,25 @@ namespace CalculatorService.Client
             return response.Content;
         }
 
-        public static string Mult(MultModel oMult)
+        public static string Mult(MultModel oMult, string sTrackingId)
         {
             var client = new RestClient("http://localhost:50236/calculator/mult");
             var request = new RestRequest(Method.POST);
-            //request.AddHeader("Postman-Token", "8fefdbd3-9cd6-4453-8a66-6664bedc1175");
+            setTracking(sTrackingId, request);
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("undefined", JsonConvert.SerializeObject(oMult), ParameterType.RequestBody);
-            //request.AddJsonBody(oAdd);
 
             IRestResponse response = client.Execute(request);
 
             return response.Content;
         }
 
-        public static string Div(DivModel oDiv)
+        public static string Div(DivModel oDiv, string sTrackingId)
         {
             var client = new RestClient("http://localhost:50236/calculator/div");
             var request = new RestRequest(Method.POST);
-            //request.AddHeader("Postman-Token", "68a46cf7-f6d6-4013-96f8-31c842ab264e");
+            setTracking(sTrackingId, request);
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("undefined", JsonConvert.SerializeObject(oDiv), ParameterType.RequestBody);
@@ -69,11 +68,11 @@ namespace CalculatorService.Client
             return response.Content;
         }
 
-        public static string SQRT(SQRTModel oSQRT)
+        public static string SQRT(SQRTModel oSQRT, string sTrackingId)
         {
             var client = new RestClient("http://localhost:50236/calculator/sqrt");
             var request = new RestRequest(Method.POST);
-            //request.AddHeader("Postman-Token", "68a46cf7-f6d6-4013-96f8-31c842ab264e");
+            setTracking(sTrackingId, request);
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("Content-Type", "application/json");
             request.AddParameter("undefined", JsonConvert.SerializeObject(oSQRT), ParameterType.RequestBody);
