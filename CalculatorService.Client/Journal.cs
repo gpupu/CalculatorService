@@ -1,4 +1,4 @@
-﻿using CalculatorService.Common.Entities;
+using CalculatorService.Common.Entities;
 using NClap.Metadata;
 using Newtonsoft.Json;
 using RestSharp;
@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Configuration;
 
 namespace CalculatorService.Client
 {
@@ -15,7 +16,7 @@ namespace CalculatorService.Client
     {
         public static string Query(JournalQuery oQuery)
         {
-            var client = new RestClient("http://localhost:50236/journal/query");
+            var client = new RestClient(string.Concat(ConfigurationManager.AppSettings["ServiceURL"], "/journal/query"));
             var request = new RestRequest(Method.POST);
             request.AddHeader("cache-control", "no-cache");
             request.AddHeader("Content-Type", "application/json");
